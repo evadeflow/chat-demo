@@ -16,14 +16,5 @@ the top-level folder:
   make
   ./DBusChat
 
-I'm be much obliged if someone could tell me why starting 'DBusChat', and then
-running 'test/test_chat.py', generates the following error:
-
-Traceback (most recent call last):
-  File "./test_chat.py", line 16, in <module>
-    print send_msg([msg1, msg2, msg3])
-  File "/usr/lib/pymodules/python2.6/dbus/proxies.py", line 140, in __call__
-    **keywords)
-  File "/usr/lib/pymodules/python2.6/dbus/connection.py", line 620, in call_blocking
-    message, timeout)
-dbus.exceptions.DBusException: org.freedesktop.DBus.Error.UnknownMethod: No such method 'sendMessage' in interface 'demo.Chat' at object path '/chat' (signature 'a(ss)')
+If you start 'DBusChat', and then run 'test/test_chat.py', you'll see some of
+the UI being exercised...
