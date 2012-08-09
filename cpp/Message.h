@@ -2,6 +2,7 @@
 #define MESSAGE_H
  
 #include <QtDBus>
+#include <QList>
  
 class Message
 {
@@ -30,5 +31,6 @@ private:
 };
  
 Q_DECLARE_METATYPE(Message)
+Q_DECLARE_METATYPE(QList<Message>)
  
 #endif // MESSAGE_H

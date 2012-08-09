@@ -45,6 +45,7 @@ void Message::registerMetaType()
     qRegisterMetaType<Message>("Message");
  
     qDBusRegisterMetaType<Message>();
+    qDBusRegisterMetaType<QList<Message> >();
 }
  
 QDBusArgument &operator<<(QDBusArgument &argument, Message const& message)

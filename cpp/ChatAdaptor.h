@@ -39,7 +39,7 @@ class ChatAdaptor: public QDBusAbstractAdaptor
 "      <arg direction=\"out\" type=\"s\" name=\"user\"/>\n"
 "    </signal>\n"
 "    <signal name=\"messageSent\">\n"
-"      <arg direction=\"out\" type=\"a(ss)\" name=\"message\"/>\n"
+"      <arg direction=\"out\" type=\"(ss)\" name=\"message\"/>\n"
 "      <annotation value=\"Message\" name=\"com.trolltech.QtDBus.QtTypeName.In0\"/>\n"
 "    </signal>\n"
 "    <method name=\"addUser\">\n"
@@ -49,8 +49,12 @@ class ChatAdaptor: public QDBusAbstractAdaptor
 "      <arg direction=\"in\" type=\"s\" name=\"user\"/>\n"
 "    </method>\n"
 "    <method name=\"sendMessage\">\n"
-"      <arg direction=\"in\" type=\"a(ss)\" name=\"message\"/>\n"
+"      <arg direction=\"in\" type=\"(ss)\" name=\"message\"/>\n"
 "      <annotation value=\"Message\" name=\"com.trolltech.QtDBus.QtTypeName.In0\"/>\n"
+"    </method>\n"
+"    <method name=\"sendMessages\">\n"
+"      <arg direction=\"in\" type=\"a(ss)\" name=\"messages\"/>\n"
+"      <annotation value=\"QList &lt; Message &gt;\" name=\"com.trolltech.QtDBus.QtTypeName.In0\"/>\n"
 "    </method>\n"
 "  </interface>\n"
         "")
@@ -65,9 +69,10 @@ public: // PROPERTIES
 public Q_SLOTS: // METHODS
     void addUser(const QString &user);
     void removeUser(const QString &user);
-    void sendMessage(Message message);
+    void sendMessage(Message const& message);
+    void sendMessages(QList<Message> const& messages);
 Q_SIGNALS: // SIGNALS
-    void messageSent(Message message);
+    void messageSent(Message const& message);
     void userAdded(const QString &user);
     void userRemoved(const QString &user);
 };

@@ -51,8 +51,16 @@ void ChatAdaptor::removeUser(const QString &user)
     QMetaObject::invokeMethod(parent(), "removeUser", Q_ARG(QString, user));
 }
  
-void ChatAdaptor::sendMessage(Message message)
+void ChatAdaptor::sendMessage(Message const& message)
 {
     // handle method call demo.Chat.sendMessage
     QMetaObject::invokeMethod(parent(), "sendMessage", Q_ARG(Message, message));
+}
+
+void ChatAdaptor::sendMessages(QList<Message> const& messages)
+{
+    Message msg; 
+    foreach(msg, messages) {
+        QMetaObject::invokeMethod(parent(), "sendMessage", Q_ARG(Message, msg));
+    }
 }
