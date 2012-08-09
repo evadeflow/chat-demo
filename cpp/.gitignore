@@ -1,0 +1,5 @@
+DBusChat
+Makefile
+moc_*
+*.o
+ui_*
